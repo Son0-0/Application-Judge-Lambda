@@ -11,23 +11,8 @@ const s3 = new AWS.S3({
   secretAccessKey: SECRET,
 });
 
-// example input
-let input = {
-  "62e0f67f8f1ac997694d4e86": ["3", "7"],
-  "62cea4c0de41eb81f44ed976": [
-    "5 6\n1\n5 1 1\n1 2 2\n1 3 3\n2 3 4\n2 4 5\n3 4 6",
-    "4 3\n1\n1 2 10\n2 3 10\n3 4 10",
-  ],
-};
-
-// example output
-let output = {
-  "62e0f67f8f1ac997694d4e86": [
-    "*\n**\n***\n",
-    "*\n**\n***\n****\n*****\n******\n*******\n",
-  ],
-  "62cea4c0de41eb81f44ed976": ["0\n2\n3\n7\nINF\n", "0\n10\n20\n30\n"],
-};
+const input = require('./input.json');
+const output = require('./output.json');
 
 async function downloadFile(fileName) {
   const params = {
