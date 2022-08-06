@@ -49,12 +49,12 @@ async function spawnDFile(fileName, problemId) {
         else msg.push(error);
         result.push(false);
       } else {
-        if (child.stdout.toString() === output[problemId][index]) {
+        if (child.stdout.toString().trim() === output[problemId][index].trim()) {
           result.push(true);
-          msg.push(child.stdout.toString());
+          msg.push(child.stdout.toString().trim());
         } else {
           result.push(false);
-          msg.push(child.stdout.toString());
+          msg.push(child.stdout.toString().trim());
         }
       }
       index += 1;

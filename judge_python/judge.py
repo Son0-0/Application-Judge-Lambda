@@ -62,12 +62,12 @@ def run_file(file_name, problem_id):
                     else:
                         msg.append(err_msg[3])
                 else:
-                    if child.stdout == output[problem_id][idx]:
+                    if child.stdout.rstrip() == output[problem_id][idx].rstrip():
                         result.append(True)
-                        msg.append(child.stdout)
+                        msg.append(child.stdout.rstrip())
                     else:
                         result.append(False)
-                        msg.append(child.stdout)
+                        msg.append(child.stdout.rstrip())
             except Exception as e:
                 result.append(False)
                 msg.append('시간초과')
